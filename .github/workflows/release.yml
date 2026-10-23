@@ -1,0 +1,50 @@
+name: Release APK
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - uses: android-actions/setup-android@v3
+
+      - run: sdkmanager "platforms;android-34" "build-tools;34.0.0"
+
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: 8.7
+
+      - name: Crear keystore
+        run: |
+          keytool -genkeypair -v -keystore mi.keystore -alias michael \
+            -keyalg RSA -keysize 2048 -validity 10000 \
+            -storepass michael123 -keypass michael123 \
+            -dname "CN=Michael FF, O=Michael, C=AR"
+
+      - name: Compilar release
+        run: gradle assembleRelease --no-daemon
+
+      - name: Alinear y firmar
+        run: |
+          BT=$ANDROID_HOME/build-tools/34.0.0
+          $BT/zipalign -v 4 app/build/outputs/apk/release/app-release-unsigned.apk alineado.apk
+          $BT/apksigner sign --ks mi.keystore --ks-pass pass:michael123 \
+            --key-pass pass:michael123 --out MichaelFF.apk alineado.apk
+
+      - name: Publicar en Releases
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.0.${{ github.run_number }}
+          name: Michael FF v1.0.${{ github.run_number }}
+          files: MichaelFF.apk
