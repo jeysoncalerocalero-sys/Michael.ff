@@ -18,6 +18,7 @@ import android.os.Handler
 import android.os.IBinder
 import android.os.Looper
 import android.util.DisplayMetrics
+import android.view.WindowManager
 import androidx.core.app.NotificationCompat
 import kotlin.math.abs
 
@@ -54,8 +55,9 @@ class ScreenCaptureService : Service() {
 
     private fun medirPantalla() {
         val dm = DisplayMetrics()
+        val wm = getSystemService(Context.WINDOW_SERVICE) as WindowManager
         @Suppress("DEPRECATION")
-        windowManager.defaultDisplay.getRealMetrics(dm)
+        wm.defaultDisplay.getRealMetrics(dm)
         Estado.ancho = dm.widthPixels
         Estado.alto = dm.heightPixels
         capAncho = 480
