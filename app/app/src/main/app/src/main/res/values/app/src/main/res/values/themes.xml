@@ -1,0 +1,8 @@
+<resources>
+    <style name="Theme.FreeFireVIP" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#39FF14</item>
+        <item name="colorOnPrimary">#0B0F14</item>
+        <item name="android:statusBarColor">#0B0F14</item>
+        <item name="android:windowBackground">#0B0F14</item>
+    </style>
+</resources>
