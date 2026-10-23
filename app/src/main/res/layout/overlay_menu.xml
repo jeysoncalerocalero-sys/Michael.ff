@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/fondo_menu"
+    android:padding="10dp"
+    android:minWidth="210dp">
+
+    <TextView
+        android:id="@+id/tituloMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MICHAEL FF"
+        android:textColor="#39FF14"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        android:paddingBottom="6dp" />
+
+    <Switch
+        android:id="@+id/swAimbot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Aimbot"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp" />
+
+    <Switch
+        android:id="@+id/swAutoFire"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Auto Fire"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp" />
+
+    <Switch
+        android:id="@+id/swRecoil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Anti Recoil"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp" />
+
+    <Switch
+        android:id="@+id/swGfx"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="GFX Boost"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp" />
+
+    <Switch
+        android:id="@+id/swDns"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DNS Rapido"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/lblSens"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sens: 1.00"
+        android:textColor="#8A93A0"
+        android:textSize="11sp"
+        android:paddingTop="6dp" />
+
+    <SeekBar
+        android:id="@+id/sbSens"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="200"
+        android:progress="100" />
+
+    <TextView
+        android:id="@+id/lblAltura"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Altura cabeza: 70"
+        android:textColor="#8A93A0"
+        android:textSize="11sp" />
+
+    <SeekBar
+        android:id="@+id/sbAltura"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="200"
+        android:progress="70" />
+
+</LinearLayout>
