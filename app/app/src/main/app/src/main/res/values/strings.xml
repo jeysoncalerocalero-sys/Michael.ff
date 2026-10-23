@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Free Fire VIP</string>
+    <string name="titulo">FREE FIRE VIP</string>
+    <string name="subtitulo">Panel de asistencia</string>
+    <string name="activar">ACTIVAR</string>
+    <string name="listo">Estado: inactivo</string>
+</resources>
