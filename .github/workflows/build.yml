@@ -18,16 +18,16 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Instalar Android SDK
-        uses: android-actions/setup-android@v3
-
-      - name: Instalar plataforma Android
-        run: sdkmanager "platforms;android-34" "build-tools;34.0.0"
-
       - name: Preparar Gradle
         uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: 8.7
+
+      - name: Aceptar licencias Android
+        run: yes | sdkmanager --licenses > /dev/null 2>&1 || true
+
+      - name: Instalar plataforma Android 34
+        run: sdkmanager "platforms;android-34" "build-tools;34.0.0" > /dev/null 2>&1 || true
 
       - name: Compilar el APK
         run: gradle assembleDebug --no-daemon
@@ -35,5 +35,5 @@ jobs:
       - name: Subir el APK
         uses: actions/upload-artifact@v4
         with:
-          name: FreeFireVIP-APK
+          name: MichaelFF-APK
           path: app/build/outputs/apk/debug/*.apk
