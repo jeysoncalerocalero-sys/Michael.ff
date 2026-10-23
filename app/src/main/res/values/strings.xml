@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Michael FF</string>
+    <string name="titulo">MICHAEL FF</string>
+    <string name="subtitulo">Panel VIP de asistencia</string>
+    <string name="activar">ACTIVAR</string>
+    <string name="listo">Estado: inactivo</string>
+</resources>
